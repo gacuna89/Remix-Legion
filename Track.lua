@@ -97,10 +97,25 @@ local L = {
         INFINITE_POWER_THIS_SESSION = "Potere infinito questa sessione: ",
         BRONZE_TRACKER = "Tracciatore di Bronzo e Potere Infinito"
     }
+    esMX = {
+        TOTAL_BRONZE = "Bronce total: ",
+        BRONZE_PER_HOUR = "Bronce por hora: ",
+        BRONZE_THIS_SESSION = "Bronce esta sesión: ",
+        TOTAL_INFINITE_POWER = "Poder infinito total: ",
+        INFINITE_POWER_PER_HOUR = "Poder infinito por hora: ",
+        INFINITE_POWER_THIS_SESSION = "Poder infinito esta sesión: ",
+        BRONZE_TRACKER = "Rastreador de Bronce y Poder Infinito"
+    }
 }
 
 -- Set the default language to English
 local lang = GetLocale() -- Automatically sets to the game client locale
+
+-- Fallback to English if the current locale is not supported
+if not L[lang] then
+    lang = "enUS"
+endlang = "enUS"
+end
 
 -- Function to set the language manually
 local function SetLanguage(language)
@@ -314,4 +329,5 @@ end
 
 -- Register the slash command
 SLASH_BRONZETRACKER1 = '/bronze'
+
 SlashCmdList["BRONZETRACKER"] = ToggleBronzeTrackerFrame
